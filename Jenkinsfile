@@ -21,7 +21,7 @@ pipeline{
 
       success{
 
-       archiveArtifacts artifacts: '/java-app/target/*.jar', fingerprint: true
+       archiveArtifacts artifacts: 'java-app/target/*.jar', fingerprint: true
 
       }
 
