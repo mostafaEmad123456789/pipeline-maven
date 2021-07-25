@@ -17,6 +17,16 @@ pipeline{
          '''
      } 
 
+     post{
+
+      success{
+
+       archiveArtifacts artifacts: '/java-app/target/*.jar', fingerprint: true
+
+      }
+
+     }
+
     }
 
     stage('Test'){
@@ -26,6 +36,18 @@ pipeline{
           ./jenkins/test/mvn.sh mvn test
          '''
      }
+
+     post{
+
+      success{
+
+       junit 'java-app/target/surefire-reports/*.xml'
+
+      }
+
+     }
+
+
 
     }
 
